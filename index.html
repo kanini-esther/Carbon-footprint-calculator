@@ -1,0 +1,78 @@
+<html>
+
+<body>
+<script>
+    // implementation of turnOnOff function -->
+    function turnOnOff() {
+        // taking image in image variable
+        var image = document.getElementById('Image');
+        var name  = document.getElementById('name').value;
+        document.getElementById('nameme').innerHTML = name;
+        document.getElementById('namebad').innerHTML = name;
+        var energy  = document.getElementById('energy').value;
+        var green = document.getElementById('hideme');
+        var red = document.getElementById('danger');
+
+        if (energy > 10) {
+            image.src = "OFFbulb.jpg";
+            green.setAttribute('hidden', '');
+            red.removeAttribute('hidden');
+        }
+        else {
+            image.src = "ONbulb.jpg";
+            green.removeAttribute('hidden');
+            red.setAttribute('hidden', '');
+        }
+
+       /* if (image.src.match("ONbulb"))
+            image.src = "OFFbulb.jpg";
+        else
+            image.src = "ONbulb.jpg";*/
+    }
+
+</script>
+<style>
+    
+
+    .bodi div input {
+        margin: 10px 5px;
+    }
+    button {
+        height: 30px;
+        width: 140px;
+    }
+</style>
+<div class="bodi" style="display: table;margin-left: 45px;">
+    <!-- onclick event is generated
+        and it calls turnOnOff function -->
+    <!-- OFFbulb.jpg is the turn off bulb image -->
+    <img id="Image" src="OFFbulb.jpg" height="124" />
+
+    <div>
+        <span id="hideme" hidden style="color: forestgreen;">
+            I am happy today! <strong id="nameme"></strong> has done well for the environment.
+        </span>
+        <span id="danger" hidden style="color: orangered;">
+            Not a good day for the air! <strong id="namebad"></strong> has done poor for the environment.
+        </span>
+    </div>
+    <div>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="Your name" required/>
+        </div>
+        <div>
+            <label for="energy">Energy</label>
+            <input type="text" name="energy" id="energy" placeholder="Energy used" required/>
+        </div>
+        <div>
+            <button onclick="turnOnOff()"  type="submit" name="calc" id="calc">Calculate</button>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+
+</html>
